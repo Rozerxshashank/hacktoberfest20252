@@ -1,0 +1,22 @@
+class Solution:
+    def findMaxLength(self, nums: List[int]) -> int:
+        d={}
+        s=0
+        l=0
+        for i in range(len(nums)):
+            if nums[i]==1:
+                s+=1
+            else:
+                s-=1
+            if s==0:
+                l=i+1
+            elif s in d:
+                if l<(i-d[s]):
+                    l=i-d[s]
+            else:
+                d[s]=i
+        return l
+
+        
+        
+        
